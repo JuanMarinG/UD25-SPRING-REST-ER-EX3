@@ -33,9 +33,8 @@ public class CajasServiceImpl implements ICajasService{
 	public void eliminarCajas (Long id) {
 		icajasDAO.deleteById(id);
 	}
-	
-	Override
-	public Cajas CajasPorId (Long id) {
+	@Override
+	public Cajas CajasPorId(Long id) {
 		return icajasDAO.findById(id).get();
 	}
 

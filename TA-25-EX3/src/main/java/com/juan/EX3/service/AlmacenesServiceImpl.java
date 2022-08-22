@@ -14,6 +14,7 @@ public class AlmacenesServiceImpl implements IAlmacenesService {
 	@Autowired
 	IAlmacenesDAO ialmacenesDAO;
 	
+	@Override
 	public List<Almacenes> listarAlmacenes(){
 		return ialmacenesDAO.findAll();
 	}
@@ -32,7 +33,7 @@ public class AlmacenesServiceImpl implements IAlmacenesService {
 	public void eliminarAlmacen (Long id) {
 		ialmacenesDAO.deleteById(id);
 	}
-	
+	@Override
 	public Almacenes AlmacenesPorId(Long id) {
 		return ialmacenesDAO.findById(id).get();
 	}
