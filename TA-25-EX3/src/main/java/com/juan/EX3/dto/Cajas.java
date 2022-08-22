@@ -19,28 +19,35 @@ public class Cajas {
 	// ATRIBUTOS TABLA CAJAS
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		
 		private char idNumRef;
 		private String Contenido;
 		private int Valor;
-		private int Almacen;
 		
 		@ManyToOne
-		@JoinColumn(name = "idCodigo")
-		private List<Almacenes> almacenes;
+		@JoinColumn(name = "id_Codigo")
+		private Almacenes almacen;
 
 	
 		// CONSTRUCTORES
 		
 		public Cajas() {}
 		
-		public Cajas(char idNumRef, String contenido, int valor, int almacen, List<Almacenes> almacenes) {
+		public Cajas(char idNumRef, String contenido, int valor, Almacenes almacenes) {
 			super();
 			this.idNumRef = idNumRef;
 			Contenido = contenido;
 			Valor = valor;
-			Almacen = almacen;
-			this.almacenes = almacenes;
+			almacenes = almacen;
+		
+		}
+
+		public Almacenes getAlmacen() {
+			return almacen;
+		}
+
+		public void setAlmacen(Almacenes almacen) {
+			this.almacen = almacen;
 		}
 
 		public char getIdNumRef() {
@@ -67,26 +74,11 @@ public class Cajas {
 			Valor = valor;
 		}
 
-		public int getAlmacen() {
-			return Almacen;
-		}
-
-		public void setAlmacen(int almacen) {
-			Almacen = almacen;
-		}
-
-		public List<Almacenes> getAlmacenes() {
-			return almacenes;
-		}
-
-		public void setAlmacenes(List<Almacenes> almacenes) {
-			this.almacenes = almacenes;
-		}
 
 		@Override
 		public String toString() {
-			return "Cajas [idNumRef=" + idNumRef + ", Contenido=" + Contenido + ", Valor=" + Valor + ", Almacen="
-					+ Almacen + ", almacenes=" + almacenes + "]";
+			return "Cajas [idNumRef=" + idNumRef + ", Contenido=" + Contenido + ", Valor=" + Valor
+					+ "]";
 		}
 		
 		

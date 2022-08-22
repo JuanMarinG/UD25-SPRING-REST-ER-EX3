@@ -3,9 +3,12 @@ package com.juan.EX3.dto;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +23,8 @@ public class Almacenes {
 	private String Lugar;
 	private int Capacidad;
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "almacen")
+	private List<Cajas> caja;
 	
 	// CONSTRUCTORES
 
